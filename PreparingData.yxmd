@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="9.5">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="198" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\herrera\AppData\Local\Alteryx\Samples\SampleData\AddressData.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>AddressData.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="ADDR" size="29" source="File: \\oahu\Beta_Projects\Content_Packaging\InProgress\SampleData\CSVGeocode_ZipCount.csv" type="V_String" />
+            <Field name="CITY" size="16" source="File: \\oahu\Beta_Projects\Content_Packaging\InProgress\SampleData\CSVGeocode_ZipCount.csv" type="V_String" />
+            <Field name="STATE" size="2" source="File: \\oahu\Beta_Projects\Content_Packaging\InProgress\SampleData\CSVGeocode_ZipCount.csv" type="String" />
+            <Field name="ZIP" size="5" source="File: \\oahu\Beta_Projects\Content_Packaging\InProgress\SampleData\CSVGeocode_ZipCount.csv" type="String" />
+            <Field name="ZIP4" size="4" source="File: \\oahu\Beta_Projects\Content_Packaging\InProgress\SampleData\CSVGeocode_ZipCount.csv" type="String" />
+            <Field name="CONAME" size="30" source="File: \\oahu\Beta_Projects\Content_Packaging\InProgress\SampleData\CSVGeocode_ZipCount.csv" type="V_String" />
+            <Field name="SCORE" source="Formula: RandInt(100)" type="Int64" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="390" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\herrera\AppData\Local\Temp\Engine_4644_2f24f5c8a3ad42c6bd6c88b8bcb6932c\Engine_2360_58ffe477cafc485a887319d73acb8646.yxdb</TempFile>
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Table</DefaultTab>
+              <Hints />
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="294" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <SelectFields>
+            <SelectField field="CONAME" selected="True" />
+            <SelectField field="ADDR" selected="True" rename="Address" />
+            <SelectField field="CITY" selected="True" />
+            <SelectField field="SCORE" selected="False" />
+            <SelectField field="STATE" selected="True" />
+            <SelectField field="ZIP" selected="True" />
+            <SelectField field="ZIP4" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>PreparingData</Name>
+      <Description />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
